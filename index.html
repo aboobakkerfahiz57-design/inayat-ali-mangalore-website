@@ -1,1 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Inayat Ali | Mangalore North</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #050b14;
+      color: white;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      padding: 22px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 35px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #e1262f;
+    }
+
+    .contact-btn {
+      background: #d9232e;
+      color: white;
+      padding: 13px 22px;
+      border-radius: 4px;
+    }
+
+    .contact-btn:hover {
+      background: #b91822;
+      color: white;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+
+      background-image:
+        linear-gradient(
+          90deg,
+          rgba(2, 8, 17, 0.96) 0%,
+          rgba(2, 8, 17, 0.82) 38%,
+          rgba(2, 8, 17, 0.25) 72%,
+          rgba(2, 8, 17, 0.15) 100%
+        ),
+        url("hero.jpg");
+
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding-top: 70px;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(55px, 8vw, 110px);
+      line-height: 0.95;
+      font-weight: 900;
+      letter-spacing: -3px;
+      margin-bottom: 20px;
+    }
+
+    .hero-content h2 {
+      color: #e8b94f;
+      font-size: clamp(22px, 3vw, 40px);
+      margin-bottom: 22px;
+      font-weight: 700;
+    }
+
+    .hero-content p {
+      max-width: 580px;
+      font-size: 18px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 28px;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 3px;
+      transition: 0.3s;
+    }
+
+    .btn-red {
+      background: #d9232e;
+      color: white;
+    }
+
+    .btn-red:hover {
+      background: #b91822;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid white;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: #07111f;
+    }
+
+    /* =========================
+       VALUES
+    ========================= */
+
+    .values {
+      background: #071426;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .value {
+      padding: 45px 25px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .value:last-child {
+      border-right: none;
+    }
+
+    .value-icon {
+      font-size: 30px;
+      color: #e1262f;
+      margin-bottom: 15px;
+    }
+
+    .value h3 {
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+
+    .value p {
+      color: #b8c0cb;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    /* =========================
+       INTRO SECTION
+    ========================= */
+
+    .intro {
+      padding: 100px 8%;
+      background: #fff;
+      color: #101820;
+      text-align: center;
+    }
+
+    .intro small {
+      color: #d9232e;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .intro h2 {
+      font-size: clamp(35px, 5vw, 60px);
+      margin: 15px 0 20px;
+    }
+
+    .intro p {
+      max-width: 750px;
+      margin: auto;
+      color: #555;
+      line-height: 1.8;
+      font-size: 17px;
+    }
+
+    /* =========================
+       PHOTO SECTION
+    ========================= */
+
+    .photo-section {
+      background: #071426;
+      padding: 80px 5%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title small {
+      color: #e8b94f;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(35px, 5vw, 60px);
+      margin-top: 12px;
+    }
+
+    .photo-grid {
+      max-width: 1300px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .photo-grid img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* =========================
+       VISION
+    ========================= */
+
+    .vision {
+      padding: 100px 8%;
+      background: #f7f7f7;
+      color: #101820;
+      text-align: center;
+    }
+
+    .vision h2 {
+      font-size: clamp(35px, 5vw, 60px);
+      margin: 15px 0 25px;
+    }
+
+    .vision p {
+      max-width: 750px;
+      margin: auto;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact {
+      padding: 100px 8%;
+      background: #d9232e;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: clamp(35px, 5vw, 60px);
+      margin-bottom: 15px;
+    }
+
+    .contact p {
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+
+    .contact .btn {
+      background: white;
+      color: #111;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #030912;
+      padding: 45px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    footer h3 {
+      font-size: 24px;
+    }
+
+    footer p {
+      color: #87919d;
+      margin-top: 8px;
+    }
+
+    footer .footer-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      header {
+        padding: 18px 5%;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        min-height: 90vh;
+        background-position: 65% center;
+      }
+
+      .hero-content {
+        padding-top: 100px;
+      }
+
+      .hero-content h1 {
+        font-size: 55px;
+      }
+
+      .hero-content h2 {
+        font-size: 25px;
+      }
+
+      .hero-content p {
+        font-size: 16px;
+      }
+
+      .values {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .value:nth-child(2) {
+        border-right: none;
+      }
+
+      .photo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-grid img {
+        height: 300px;
+      }
+
+      footer {
+        text-align: center;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .logo {
+        font-size: 22px;
+      }
+
+      .contact-btn {
+        padding: 10px 14px;
+        font-size: 12px;
+      }
+
+      .hero-content h1 {
+        font-size: 48px;
+      }
+
+      .values {
+        grid-template-columns: 1fr;
+      }
+
+      .value {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <header>
+    <div class="logo">INAYAT ALI</div>
+
+    <nav>
+      <a href="#home">HOME</a>
+      <a href="#about">ABOUT</a>
+      <a href="#work">WORK</a>
+      <a href="#gallery">GALLERY</a>
+      <a href="#media">MEDIA</a>
+      <a href="#contact">CONTACT</a>
+      <a href="#contact" class="contact-btn">GET IN TOUCH</a>
+    </nav>
+  </header>
+
+
+  <!-- HOMEPAGE -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <h1>INAYAT ALI</h1>
+
+      <h2>A JOURNEY ROOTED IN PEOPLE</h2>
+
+      <p>
+        Listening to the people, standing with the community
+        and working for a better tomorrow.
+      </p>
+
+      <div class="buttons">
+
+        <a href="#about" class="btn btn-red">
+          ABOUT INAYAT ALI
+        </a>
+
+        <a href="#work" class="btn btn-outline">
+          OUR WORK
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- VALUES -->
+
+  <section class="values">
+
+    <div class="value">
+      <div class="value-icon">♧</div>
+      <h3>PEOPLE FIRST</h3>
+      <p>
+        Every decision begins with the people.
+      </p>
+    </div>
+
+    <div class="value">
+      <div class="value-icon">♡</div>
+      <h3>COMMUNITY DRIVEN</h3>
+      <p>
+        Working together for a stronger,
+        kinder and united community.
+      </p>
+    </div>
+
+    <div class="value">
+      <div class="value-icon">🤝</div>
+      <h3>SERVICE ALWAYS</h3>
+      <p>
+        Committed to service, not just in words,
+        but in action.
+      </p>
+    </div>
+
+    <div class="value">
+      <div class="value-icon">☆</div>
+      <h3>BETTER TOMORROW</h3>
+      <p>
+        Building a better future for our
+        children and generations to come.
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+
+  <section class="intro" id="about">
+
+    <small>ABOUT INAYAT ALI</small>
+
+    <h2>A Journey Rooted in People</h2>
+
+    <p>
+      Inayat Ali's public journey has been shaped by political
+      leadership, community engagement and a commitment to
+      connecting with people.
+    </p>
+
+  </section>
+
+
+  <!-- WORK -->
+
+  <section class="photo-section" id="work">
+
+    <div class="section-title">
+
+      <small>WITH THE PEOPLE</small>
+
+      <h2>Every Face. Every Story.</h2>
+
+    </div>
+
+    <div class="photo-grid">
+
+      <img src="WhatsApp Image 2026-08-25 at 8.20.18 PM.jpeg" alt="Community interaction">
+
+      <img src="WhatsApp Image 2026-08-25 at 8.20.14 PM.jpeg" alt="Community interaction">
+
+      <img src="WhatsApp Image 2026-08-25 at 8.20.15 PM.jpeg" alt="Community interaction">
+
+      <img src="WhatsApp Image 2026-08-25 at 8.20.16 PM.jpeg" alt="Community activity">
+
+      <img src="WhatsApp Image 2026-08-25 at 8.20.17 PM.jpeg" alt="Community activity">
+
+      <img src="hero.jpg" alt="Inayat Ali">
+
+    </div>
+
+  </section>
+
+
+  <!-- VISION -->
+
+  <section class="vision" id="media">
+
+    <small>THE FUTURE</small>
+
+    <h2>Vision for Mangalore North</h2>
+
+    <p>
+      A people-focused vision built around listening,
+      understanding community needs and working towards
+      a stronger future.
+    </p>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section class="contact" id="contact">
+
+    <h2>Your Voice Matters</h2>
+
+    <p>
+      Connect with us and share your thoughts.
+    </p>
+
+    <a href="mailto:contact@example.com" class="btn">
+      GET IN TOUCH
+    </a>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div>
+      <h3>INAYAT ALI</h3>
+      <p>A journey rooted in people.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+  </footer>
+
+</body>
+</html>
