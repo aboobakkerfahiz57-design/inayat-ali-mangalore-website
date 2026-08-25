@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Inayat Ali | Mangalore North</title>
+  <title>Inayat Ali | Mangaluru</title>
+  <meta name="description" content="Official informational website of Inayat Ali, featuring his public activities, professional journey and community engagement.">
 
   <style>
     * {
@@ -19,143 +20,166 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #050b14;
-      color: white;
+      background: #f7f7f7;
+      color: #111;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
     }
 
     /* =========================
        NAVIGATION
-    ========================= */
+    ========================== */
 
-    header {
-      position: absolute;
+    .navbar {
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      z-index: 10;
-      padding: 22px 5%;
+      height: 72px;
+      z-index: 1000;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid rgba(255,255,255,0.15);
+
+      padding: 0 5%;
+      background: rgba(7, 16, 29, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
     .logo {
-      font-size: 28px;
+      color: white;
+      font-size: 25px;
       font-weight: 800;
       letter-spacing: 1px;
     }
 
-    nav {
+    .nav-links {
       display: flex;
       align-items: center;
-      gap: 35px;
+      gap: 30px;
+      list-style: none;
     }
 
-    nav a {
+    .nav-links a {
       color: white;
-      text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
+      letter-spacing: 0.5px;
       transition: 0.3s;
     }
 
-    nav a:hover {
-      color: #e1262f;
+    .nav-links a:hover {
+      color: #d52f3d;
     }
 
-    .contact-btn {
-      background: #d9232e;
+    .menu-btn {
+      display: none;
       color: white;
-      padding: 13px 22px;
-      border-radius: 4px;
-    }
-
-    .contact-btn:hover {
-      background: #b91822;
-      color: white;
+      font-size: 28px;
+      cursor: pointer;
     }
 
     /* =========================
        HERO
-    ========================= */
+    ========================== */
 
     .hero {
       min-height: 100vh;
       position: relative;
+
       display: flex;
       align-items: center;
-      overflow: hidden;
 
-      background-image:
+      background:
         linear-gradient(
           90deg,
-          rgba(2, 8, 17, 0.96) 0%,
-          rgba(2, 8, 17, 0.82) 38%,
-          rgba(2, 8, 17, 0.25) 72%,
-          rgba(2, 8, 17, 0.15) 100%
+          rgba(3,10,20,0.94) 0%,
+          rgba(3,10,20,0.75) 42%,
+          rgba(3,10,20,0.18) 100%
         ),
-        url("hero.jpg");
+        url("hero.jpg") center center / cover no-repeat;
 
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      color: white;
     }
 
     .hero-content {
-      position: relative;
-      z-index: 2;
-      width: 90%;
-      max-width: 1200px;
+      width: min(1200px, 90%);
       margin: auto;
       padding-top: 70px;
     }
 
-    .hero-content h1 {
-      font-size: clamp(55px, 8vw, 110px);
+    .eyebrow {
+      color: #e2b866;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(55px, 9vw, 120px);
       line-height: 0.95;
       font-weight: 900;
-      letter-spacing: -3px;
-      margin-bottom: 20px;
+      letter-spacing: -4px;
+      max-width: 800px;
     }
 
-    .hero-content h2 {
-      color: #e8b94f;
-      font-size: clamp(22px, 3vw, 40px);
-      margin-bottom: 22px;
-      font-weight: 700;
+    .hero h2 {
+      margin-top: 25px;
+      font-size: clamp(22px, 3vw, 38px);
+      color: #e2b866;
+      max-width: 700px;
     }
 
-    .hero-content p {
-      max-width: 580px;
+    .hero p {
+      max-width: 620px;
+      margin-top: 22px;
       font-size: 18px;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 35px;
+      color: #e8edf4;
     }
 
-    .buttons {
+    .hero-buttons {
       display: flex;
       gap: 15px;
+      margin-top: 35px;
       flex-wrap: wrap;
     }
 
     .btn {
-      display: inline-block;
-      padding: 16px 28px;
-      text-decoration: none;
-      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 50px;
+      padding: 0 28px;
+
       border-radius: 3px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+
       transition: 0.3s;
     }
 
-    .btn-red {
-      background: #d9232e;
+    .btn-primary {
+      background: #d52f3d;
       color: white;
     }
 
-    .btn-red:hover {
-      background: #b91822;
+    .btn-primary:hover {
+      background: #b92431;
       transform: translateY(-2px);
     }
 
@@ -166,211 +190,424 @@
 
     .btn-outline:hover {
       background: white;
-      color: #07111f;
-    }
-
-    /* =========================
-       VALUES
-    ========================= */
-
-    .values {
-      background: #071426;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border-top: 1px solid rgba(255,255,255,0.1);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .value {
-      padding: 45px 25px;
-      text-align: center;
-      border-right: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .value:last-child {
-      border-right: none;
-    }
-
-    .value-icon {
-      font-size: 30px;
-      color: #e1262f;
-      margin-bottom: 15px;
-    }
-
-    .value h3 {
-      font-size: 17px;
-      margin-bottom: 10px;
-    }
-
-    .value p {
-      color: #b8c0cb;
-      line-height: 1.6;
-      font-size: 14px;
-    }
-
-    /* =========================
-       INTRO SECTION
-    ========================= */
-
-    .intro {
-      padding: 100px 8%;
-      background: #fff;
-      color: #101820;
-      text-align: center;
-    }
-
-    .intro small {
-      color: #d9232e;
-      font-weight: 800;
-      letter-spacing: 2px;
-    }
-
-    .intro h2 {
-      font-size: clamp(35px, 5vw, 60px);
-      margin: 15px 0 20px;
-    }
-
-    .intro p {
-      max-width: 750px;
-      margin: auto;
-      color: #555;
-      line-height: 1.8;
-      font-size: 17px;
-    }
-
-    /* =========================
-       PHOTO SECTION
-    ========================= */
-
-    .photo-section {
-      background: #071426;
-      padding: 80px 5%;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .section-title small {
-      color: #e8b94f;
-      font-weight: 800;
-      letter-spacing: 2px;
-    }
-
-    .section-title h2 {
-      font-size: clamp(35px, 5vw, 60px);
-      margin-top: 12px;
-    }
-
-    .photo-grid {
-      max-width: 1300px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-    }
-
-    .photo-grid img {
-      width: 100%;
-      height: 350px;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* =========================
-       VISION
-    ========================= */
-
-    .vision {
-      padding: 100px 8%;
-      background: #f7f7f7;
-      color: #101820;
-      text-align: center;
-    }
-
-    .vision h2 {
-      font-size: clamp(35px, 5vw, 60px);
-      margin: 15px 0 25px;
-    }
-
-    .vision p {
-      max-width: 750px;
-      margin: auto;
-      color: #555;
-      line-height: 1.8;
-    }
-
-    /* =========================
-       CONTACT
-    ========================= */
-
-    .contact {
-      padding: 100px 8%;
-      background: #d9232e;
-      text-align: center;
-    }
-
-    .contact h2 {
-      font-size: clamp(35px, 5vw, 60px);
-      margin-bottom: 15px;
-    }
-
-    .contact p {
-      margin-bottom: 30px;
-      font-size: 18px;
-    }
-
-    .contact .btn {
-      background: white;
       color: #111;
     }
 
     /* =========================
-       FOOTER
-    ========================= */
+       SECTION
+    ========================== */
 
-    footer {
-      background: #030912;
-      padding: 45px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 30px;
-      flex-wrap: wrap;
+    section {
+      padding: 100px 5%;
     }
 
-    footer h3 {
-      font-size: 24px;
+    .section-inner {
+      max-width: 1200px;
+      margin: auto;
     }
 
-    footer p {
-      color: #87919d;
-      margin-top: 8px;
+    .section-label {
+      color: #c52b38;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
     }
 
-    footer .footer-links {
-      display: flex;
-      gap: 25px;
+    .section-title {
+      font-size: clamp(35px, 5vw, 60px);
+      line-height: 1.05;
+      margin-bottom: 25px;
+      letter-spacing: -1px;
     }
 
-    footer a {
-      color: white;
-      text-decoration: none;
+    .section-text {
+      max-width: 750px;
+      color: #555;
+      font-size: 17px;
     }
 
     /* =========================
-       MOBILE
-    ========================= */
+       ABOUT
+    ========================== */
+
+    .about {
+      background: white;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-photo {
+      height: 600px;
+      object-fit: cover;
+    }
+
+    .about-copy p {
+      margin-bottom: 18px;
+      color: #555;
+    }
+
+    .info-list {
+      margin-top: 30px;
+      display: grid;
+      gap: 15px;
+    }
+
+    .info-item {
+      border-left: 3px solid #c52b38;
+      padding: 12px 18px;
+      background: #f7f7f7;
+    }
+
+    .info-item strong {
+      display: block;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    /* =========================
+       HIGHLIGHTS
+    ========================== */
+
+    .highlights {
+      background: #07101d;
+      color: white;
+    }
+
+    .highlights .section-text {
+      color: #b9c0ca;
+    }
+
+    .highlight-grid {
+      margin-top: 50px;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+
+      background: rgba(255,255,255,0.15);
+    }
+
+    .highlight {
+      padding: 35px 25px;
+      background: #07101d;
+    }
+
+    .highlight-number {
+      font-size: 42px;
+      font-weight: 900;
+      color: #e2b866;
+      margin-bottom: 15px;
+    }
+
+    .highlight h3 {
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+
+    .highlight p {
+      color: #aeb6c1;
+      font-size: 14px;
+    }
+
+    /* =========================
+       JOURNEY
+    ========================== */
+
+    .journey {
+      background: #f4f4f4;
+    }
+
+    .timeline {
+      margin-top: 50px;
+      border-left: 2px solid #d52f3d;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 45px 40px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -9px;
+      top: 5px;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #d52f3d;
+      border: 4px solid #f4f4f4;
+    }
+
+    .timeline-item span {
+      color: #c52b38;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .timeline-item h3 {
+      margin: 7px 0;
+      font-size: 23px;
+    }
+
+    .timeline-item p {
+      color: #666;
+      max-width: 750px;
+    }
+
+    /* =========================
+       GALLERY
+    ========================== */
+
+    .gallery {
+      background: white;
+    }
+
+    .gallery-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 45px;
+    }
+
+    .gallery-count {
+      color: #777;
+      font-size: 14px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .gallery-item {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+      background: #ddd;
+      cursor: pointer;
+    }
+
+    .gallery-item:nth-child(5n) {
+      grid-column: span 2;
+      height: 420px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+
+      display: flex;
+      align-items: end;
+
+      padding: 20px;
+
+      background: linear-gradient(
+        transparent 45%,
+        rgba(0,0,0,0.65)
+      );
+
+      opacity: 0;
+      transition: 0.3s;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-overlay span {
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .loading {
+      grid-column: 1 / -1;
+      padding: 70px 20px;
+      text-align: center;
+      color: #777;
+    }
+
+    /* =========================
+       LIGHTBOX
+    ========================== */
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+
+      display: none;
+      align-items: center;
+      justify-content: center;
+
+      background: rgba(0,0,0,0.94);
+      padding: 30px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 92vw;
+      max-height: 88vh;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .close-lightbox {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+
+      color: white;
+      font-size: 42px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       CONTACT
+    ========================== */
+
+    .contact {
+      background: #07101d;
+      color: white;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .contact .section-text {
+      color: #bac2cd;
+    }
+
+    .contact-box {
+      padding: 40px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .contact-box h3 {
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+
+    .contact-row {
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .contact-row strong {
+      display: block;
+      color: #e2b866;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      background: #030812;
+      color: #89929f;
+      padding: 35px 5%;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
 
     @media (max-width: 900px) {
 
-      header {
-        padding: 18px 5%;
+      .nav-links {
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding: 25px 5%;
+        background: #07101d;
       }
 
-      nav {
-        display: none;
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .highlight-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-item,
+      .gallery-item:nth-child(5n) {
+        height: 300px;
+        grid-column: span 1;
+      }
+
+      .gallery-header {
+        display: block;
+      }
+
+      .gallery-count {
+        margin-top: 10px;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      section {
+        padding: 75px 5%;
       }
 
       .hero {
@@ -379,65 +616,41 @@
       }
 
       .hero-content {
-        padding-top: 100px;
+        padding-top: 60px;
       }
 
-      .hero-content h1 {
-        font-size: 55px;
+      .hero h1 {
+        font-size: 58px;
+        letter-spacing: -2px;
       }
 
-      .hero-content h2 {
-        font-size: 25px;
+      .hero h2 {
+        font-size: 23px;
       }
 
-      .hero-content p {
-        font-size: 16px;
+      .hero p {
+        font-size: 15px;
       }
 
-      .values {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .value:nth-child(2) {
-        border-right: none;
-      }
-
-      .photo-grid {
+      .highlight-grid {
         grid-template-columns: 1fr;
       }
 
-      .photo-grid img {
-        height: 300px;
-      }
-
-      footer {
-        text-align: center;
-        justify-content: center;
-      }
-    }
-
-    @media (max-width: 500px) {
-
-      .logo {
-        font-size: 22px;
-      }
-
-      .contact-btn {
-        padding: 10px 14px;
-        font-size: 12px;
-      }
-
-      .hero-content h1 {
-        font-size: 48px;
-      }
-
-      .values {
+      .gallery-grid {
         grid-template-columns: 1fr;
       }
 
-      .value {
-        border-right: none;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
+      .gallery-item,
+      .gallery-item:nth-child(5n) {
+        height: 360px;
+      }
+
+      .about-photo {
+        height: 450px;
+      }
+
+      .contact-box {
+        padding: 25px;
       }
     }
   </style>
@@ -445,196 +658,643 @@
 
 <body>
 
-  <!-- NAVIGATION -->
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
 
-  <header>
-    <div class="logo">INAYAT ALI</div>
+  <header class="navbar">
 
-    <nav>
-      <a href="#home">HOME</a>
-      <a href="#about">ABOUT</a>
-      <a href="#work">WORK</a>
-      <a href="#gallery">GALLERY</a>
-      <a href="#media">MEDIA</a>
-      <a href="#contact">CONTACT</a>
-      <a href="#contact" class="contact-btn">GET IN TOUCH</a>
-    </nav>
+    <a href="#home" class="logo">
+      INAYAT ALI
+    </a>
+
+    <div class="menu-btn" onclick="toggleMenu()">
+      ☰
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">HOME</a></li>
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#journey">JOURNEY</a></li>
+      <li><a href="#gallery">GALLERY</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+
   </header>
 
 
-  <!-- HOMEPAGE -->
+  <!-- =========================
+       HERO
+  ========================== -->
 
-  <section class="hero" id="home">
+  <main>
 
-    <div class="hero-content">
+    <section class="hero" id="home">
 
-      <h1>INAYAT ALI</h1>
+      <div class="hero-content">
 
-      <h2>A JOURNEY ROOTED IN PEOPLE</h2>
+        <div class="eyebrow">
+          Mangaluru • Karnataka
+        </div>
 
-      <p>
-        Listening to the people, standing with the community
-        and working for a better tomorrow.
-      </p>
+        <h1>
+          INAYAT<br>ALI
+        </h1>
 
-      <div class="buttons">
+        <h2>
+          A journey rooted in people.
+        </h2>
 
-        <a href="#about" class="btn btn-red">
-          ABOUT INAYAT ALI
-        </a>
+        <p>
+          An informational space documenting public activities,
+          leadership experience, community engagement and the journey
+          of Inayat Ali.
+        </p>
 
-        <a href="#work" class="btn btn-outline">
-          OUR WORK
-        </a>
+        <div class="hero-buttons">
+          <a href="#about" class="btn btn-primary">
+            EXPLORE PROFILE
+          </a>
+
+          <a href="#gallery" class="btn btn-outline">
+            VIEW PHOTOGRAPHS
+          </a>
+        </div>
 
       </div>
 
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section class="about" id="about">
+
+      <div class="section-inner">
+
+        <div class="about-grid">
+
+          <div>
+            <img
+              src="hero.jpg"
+              alt="Inayat Ali"
+              class="about-photo"
+            >
+          </div>
+
+          <div class="about-copy">
+
+            <div class="section-label">
+              About
+            </div>
+
+            <h2 class="section-title">
+              A public journey shaped by people.
+            </h2>
+
+            <p>
+              This website presents an overview of Inayat Ali's
+              public journey, professional background and community
+              interactions.
+            </p>
+
+            <p>
+              It brings together photographs and information from
+              different stages of his public activities, creating
+              one accessible digital record.
+            </p>
+
+            <div class="info-list">
+
+              <div class="info-item">
+                <strong>Location</strong>
+                Mangaluru, Karnataka
+              </div>
+
+              <div class="info-item">
+                <strong>Public Role</strong>
+                Political and community activities
+              </div>
+
+              <div class="info-item">
+                <strong>Website</strong>
+                Public profile and activity archive
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         HIGHLIGHTS
+    ========================== -->
+
+    <section class="highlights">
+
+      <div class="section-inner">
+
+        <div class="section-label">
+          Focus
+        </div>
+
+        <h2 class="section-title">
+          People. Community. Public Life.
+        </h2>
+
+        <p class="section-text">
+          A visual record of different aspects of public engagement
+          and community interaction.
+        </p>
+
+        <div class="highlight-grid">
+
+          <div class="highlight">
+            <div class="highlight-number">01</div>
+            <h3>People</h3>
+            <p>
+              Meetings and interactions with people from different
+              backgrounds.
+            </p>
+          </div>
+
+          <div class="highlight">
+            <div class="highlight-number">02</div>
+            <h3>Community</h3>
+            <p>
+              Participation in community activities and gatherings.
+            </p>
+          </div>
+
+          <div class="highlight">
+            <div class="highlight-number">03</div>
+            <h3>Leadership</h3>
+            <p>
+              Public meetings, organisational activities and
+              leadership engagements.
+            </p>
+          </div>
+
+          <div class="highlight">
+            <div class="highlight-number">04</div>
+            <h3>Public Life</h3>
+            <p>
+              A growing archive documenting activities and
+              interactions.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         JOURNEY
+    ========================== -->
+
+    <section class="journey" id="journey">
+
+      <div class="section-inner">
+
+        <div class="section-label">
+          Journey
+        </div>
+
+        <h2 class="section-title">
+          From public service to leadership.
+        </h2>
+
+        <p class="section-text">
+          Key milestones can be added here after they are confirmed
+          and approved by the client.
+        </p>
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <span>EARLY YEARS</span>
+            <h3>Grassroots involvement</h3>
+            <p>
+              Early involvement in public and organisational activities.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <span>YOUTH LEADERSHIP</span>
+            <h3>Organisational experience</h3>
+            <p>
+              Leadership and organisational responsibilities during
+              his political journey.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <span>PUBLIC LIFE</span>
+            <h3>Community engagement</h3>
+            <p>
+              Continued interaction with citizens, organisations and
+              community groups.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <span>PRESENT</span>
+            <h3>Continuing the journey</h3>
+            <p>
+              Ongoing public activities and engagement in the
+              Mangaluru region.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         GALLERY
+    ========================== -->
+
+    <section class="gallery" id="gallery">
+
+      <div class="section-inner">
+
+        <div class="gallery-header">
+
+          <div>
+
+            <div class="section-label">
+              Gallery
+            </div>
+
+            <h2 class="section-title">
+              Moments from the journey.
+            </h2>
+
+          </div>
+
+          <div class="gallery-count" id="galleryCount">
+            Loading photographs...
+          </div>
+
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+
+          <div class="loading">
+            Loading photographs from the repository...
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section class="contact" id="contact">
+
+      <div class="section-inner">
+
+        <div class="contact-grid">
+
+          <div>
+
+            <div class="section-label">
+              Contact
+            </div>
+
+            <h2 class="section-title">
+              Stay connected.
+            </h2>
+
+            <p class="section-text">
+              Contact details and official communication channels
+              can be added here after confirmation from the client.
+            </p>
+
+          </div>
+
+          <div class="contact-box">
+
+            <h3>Official Information</h3>
+
+            <div class="contact-row">
+              <strong>Name</strong>
+              Inayat Ali
+            </div>
+
+            <div class="contact-row">
+              <strong>Region</strong>
+              Mangaluru, Karnataka
+            </div>
+
+            <div class="contact-row">
+              <strong>Email</strong>
+              To be added
+            </div>
+
+            <div class="contact-row">
+              <strong>Phone</strong>
+              To be added
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       LIGHTBOX
+  ========================== -->
+
+  <div class="lightbox" id="lightbox">
+
+    <div class="close-lightbox" onclick="closeLightbox()">
+      ×
     </div>
 
-  </section>
+    <img id="lightboxImage" src="" alt="Gallery photograph">
+
+  </div>
 
 
-  <!-- VALUES -->
-
-  <section class="values">
-
-    <div class="value">
-      <div class="value-icon">♧</div>
-      <h3>PEOPLE FIRST</h3>
-      <p>
-        Every decision begins with the people.
-      </p>
-    </div>
-
-    <div class="value">
-      <div class="value-icon">♡</div>
-      <h3>COMMUNITY DRIVEN</h3>
-      <p>
-        Working together for a stronger,
-        kinder and united community.
-      </p>
-    </div>
-
-    <div class="value">
-      <div class="value-icon">🤝</div>
-      <h3>SERVICE ALWAYS</h3>
-      <p>
-        Committed to service, not just in words,
-        but in action.
-      </p>
-    </div>
-
-    <div class="value">
-      <div class="value-icon">☆</div>
-      <h3>BETTER TOMORROW</h3>
-      <p>
-        Building a better future for our
-        children and generations to come.
-      </p>
-    </div>
-
-  </section>
-
-
-  <!-- ABOUT -->
-
-  <section class="intro" id="about">
-
-    <small>ABOUT INAYAT ALI</small>
-
-    <h2>A Journey Rooted in People</h2>
-
-    <p>
-      Inayat Ali's public journey has been shaped by political
-      leadership, community engagement and a commitment to
-      connecting with people.
-    </p>
-
-  </section>
-
-
-  <!-- WORK -->
-
-  <section class="photo-section" id="work">
-
-    <div class="section-title">
-
-      <small>WITH THE PEOPLE</small>
-
-      <h2>Every Face. Every Story.</h2>
-
-    </div>
-
-    <div class="photo-grid">
-
-      <img src="WhatsApp Image 2026-08-25 at 8.20.18 PM.jpeg" alt="Community interaction">
-
-      <img src="WhatsApp Image 2026-08-25 at 8.20.14 PM.jpeg" alt="Community interaction">
-
-      <img src="WhatsApp Image 2026-08-25 at 8.20.15 PM.jpeg" alt="Community interaction">
-
-      <img src="WhatsApp Image 2026-08-25 at 8.20.16 PM.jpeg" alt="Community activity">
-
-      <img src="WhatsApp Image 2026-08-25 at 8.20.17 PM.jpeg" alt="Community activity">
-
-      <img src="hero.jpg" alt="Inayat Ali">
-
-    </div>
-
-  </section>
-
-
-  <!-- VISION -->
-
-  <section class="vision" id="media">
-
-    <small>THE FUTURE</small>
-
-    <h2>Vision for Mangalore North</h2>
-
-    <p>
-      A people-focused vision built around listening,
-      understanding community needs and working towards
-      a stronger future.
-    </p>
-
-  </section>
-
-
-  <!-- CONTACT -->
-
-  <section class="contact" id="contact">
-
-    <h2>Your Voice Matters</h2>
-
-    <p>
-      Connect with us and share your thoughts.
-    </p>
-
-    <a href="mailto:contact@example.com" class="btn">
-      GET IN TOUCH
-    </a>
-
-  </section>
-
-
-  <!-- FOOTER -->
+  <!-- =========================
+       FOOTER
+  ========================== -->
 
   <footer>
 
-    <div>
-      <h3>INAYAT ALI</h3>
-      <p>A journey rooted in people.</p>
-    </div>
+    <strong>INAYAT ALI</strong>
 
-    <div class="footer-links">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#work">Work</a>
-      <a href="#contact">Contact</a>
-    </div>
+    <br><br>
+
+    Mangaluru, Karnataka
+
+    <br><br>
+
+    © <span id="year"></span> Inayat Ali. All rights reserved.
 
   </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    const GITHUB_OWNER = "aboobakkerfahiz57-design";
+    const GITHUB_REPO = "inayat-ali-mangalore-website";
+    const GITHUB_BRANCH = "main";
+
+    const galleryGrid = document.getElementById("galleryGrid");
+    const galleryCount = document.getElementById("galleryCount");
+
+    const imageExtensions = [
+      ".jpg",
+      ".jpeg",
+      ".png",
+      ".webp",
+      ".gif"
+    ];
+
+
+    /* =========================
+       MOBILE MENU
+    ========================== */
+
+    function toggleMenu() {
+
+      const nav = document.getElementById("navLinks");
+
+      nav.classList.toggle("active");
+
+    }
+
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        document
+          .getElementById("navLinks")
+          .classList.remove("active");
+
+      });
+
+    });
+
+
+    /* =========================
+       LOAD ALL GITHUB IMAGES
+    ========================== */
+
+    async function loadGallery() {
+
+      try {
+
+        const apiUrl =
+          `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/?ref=${GITHUB_BRANCH}`;
+
+        const response = await fetch(apiUrl);
+
+        if (!response.ok) {
+          throw new Error("Unable to read repository.");
+        }
+
+        const files = await response.json();
+
+        const images = files.filter(file => {
+
+          if (file.type !== "file") {
+            return false;
+          }
+
+          const name = file.name.toLowerCase();
+
+          return imageExtensions.some(ext =>
+            name.endsWith(ext)
+          );
+
+        });
+
+        const galleryImages = images.filter(file =>
+          file.name.toLowerCase() !== "hero.jpg"
+        );
+
+        galleryGrid.innerHTML = "";
+
+        if (galleryImages.length === 0) {
+
+          galleryGrid.innerHTML = `
+            <div class="loading">
+              No gallery photographs were found.
+            </div>
+          `;
+
+          galleryCount.textContent = "0 photographs";
+
+          return;
+        }
+
+        galleryCount.textContent =
+          `${galleryImages.length} photographs`;
+
+        galleryImages.forEach((file, index) => {
+
+          const item = document.createElement("div");
+
+          item.className = "gallery-item";
+
+          const image = document.createElement("img");
+
+          /*
+             GitHub raw URL.
+
+             This means you do NOT need to rename
+             your WhatsApp image filenames.
+          */
+
+          image.src =
+            `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${GITHUB_BRANCH}/${encodeURIComponent(file.name)}`;
+
+          image.alt =
+            `Inayat Ali photograph ${index + 1}`;
+
+          image.loading = "lazy";
+
+          const overlay =
+            document.createElement("div");
+
+          overlay.className = "gallery-overlay";
+
+          const label =
+            document.createElement("span");
+
+          label.textContent =
+            `Photograph ${index + 1}`;
+
+          overlay.appendChild(label);
+
+          item.appendChild(image);
+          item.appendChild(overlay);
+
+          item.addEventListener("click", () => {
+
+            openLightbox(image.src);
+
+          });
+
+          galleryGrid.appendChild(item);
+
+        });
+
+      } catch (error) {
+
+        console.error(error);
+
+        galleryCount.textContent =
+          "Gallery unavailable";
+
+        galleryGrid.innerHTML = `
+          <div class="loading">
+            The gallery could not be loaded right now.
+            Please check that the repository is public.
+          </div>
+        `;
+
+      }
+
+    }
+
+
+    /* =========================
+       LIGHTBOX
+    ========================== */
+
+    function openLightbox(src) {
+
+      const lightbox =
+        document.getElementById("lightbox");
+
+      const lightboxImage =
+        document.getElementById("lightboxImage");
+
+      lightboxImage.src = src;
+
+      lightbox.classList.add("active");
+
+    }
+
+
+    function closeLightbox() {
+
+      document
+        .getElementById("lightbox")
+        .classList.remove("active");
+
+    }
+
+
+    document
+      .getElementById("lightbox")
+      .addEventListener("click", function(event) {
+
+        if (event.target === this) {
+          closeLightbox();
+        }
+
+      });
+
+
+    document.addEventListener("keydown", function(event) {
+
+      if (event.key === "Escape") {
+        closeLightbox();
+      }
+
+    });
+
+
+    /* =========================
+       YEAR
+    ========================== */
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    /* =========================
+       START
+    ========================== */
+
+    loadGallery();
+
+  </script>
 
 </body>
 </html>
