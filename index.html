@@ -467,6 +467,13 @@ section{
     font-weight:700;
 }
 
+.gallery-loading{
+    grid-column:1 / -1;
+    padding:70px 20px;
+    text-align:center;
+    color:#777;
+}
+
 /* =========================
    LIGHTBOX
 ========================= */
@@ -701,6 +708,7 @@ footer strong{
 
 <body>
 
+
 <!-- =========================
      NAVIGATION
 ========================= -->
@@ -793,11 +801,6 @@ footer strong{
     <div class="section-inner">
 
         <div class="about-grid">
-
-            <!-- IMPORTANT:
-                 This is now about.jpg
-                 NOT hero.jpg
-            -->
 
             <img
                 src="about.jpg"
@@ -991,7 +994,6 @@ footer strong{
             that form an ongoing public journey.
         </p>
 
-
         <div class="timeline">
 
             <div class="timeline-item">
@@ -1096,142 +1098,30 @@ footer strong{
 
             </div>
 
-            <div class="gallery-count">
-                Community • Public Life • Journey
+            <div class="gallery-count" id="galleryCount">
+                Loading photographs...
             </div>
 
         </div>
 
 
-        <div class="gallery-grid">
+        <!--
+            IMPORTANT:
 
-            <!-- Existing gallery images -->
+            We do NOT manually write 50 filenames.
 
-            <div class="gallery-item">
+            JavaScript below will automatically
+            find every uploaded image in the
+            GitHub repository.
+        -->
 
-                <img
-                    src="WhatsApp Image 2026-08-25 at 8.19.53 PM.jpeg"
-                    alt="Community interaction"
-                >
+        <div
+            class="gallery-grid"
+            id="galleryGrid"
+        >
 
-                <div class="gallery-overlay">
-                    <span>
-                        Community Interaction
-                    </span>
-                </div>
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="WhatsApp Image 2026-08-25 at 8.19.54 PM.jpeg"
-                    alt="Public activity"
-                >
-
-                <div class="gallery-overlay">
-                    <span>
-                        Public Activity
-                    </span>
-                </div>
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="WhatsApp Image 2026-08-25 at 8.19.55 PM.jpeg"
-                    alt="Community"
-                >
-
-                <div class="gallery-overlay">
-                    <span>
-                        Community
-                    </span>
-                </div>
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="WhatsApp Image 2026-08-25 at 8.19.56 PM.jpeg"
-                    alt="Public journey"
-                >
-
-                <div class="gallery-overlay">
-                    <span>
-                        Public Journey
-                    </span>
-                </div>
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="about.jpg"
-                    alt="Inayat Ali"
-                >
-
-                <div class="gallery-overlay">
-                    <span>
-                        Inayat Ali
-                    </span>
-                </div>
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="WhatsApp Image 2026-08-25 at 8.19.58 PM.jpeg"
-                    alt="Community interaction"
-                >
-
-                <div class="gallery-overlay">
-                    <span>
-                        Community Interaction
-                    </span>
-                </div>
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="WhatsApp Image 2026-08-25 at 8.19.59 PM.jpeg"
-                    alt="Public activity"
-                >
-
-                <div class="gallery-overlay">
-                    <span>
-                        Public Activity
-                    </span>
-                </div>
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="WhatsApp Image 2026-08-25 at 8.20.00 PM.jpeg"
-                    alt="Community meeting"
-                >
-
-                <div class="gallery-overlay">
-                    <span>
-                        Community Meeting
-                    </span>
-                </div>
-
+            <div class="gallery-loading">
+                Loading all photographs...
             </div>
 
         </div>
@@ -1257,7 +1147,7 @@ footer strong{
     <img
         id="lightboxImage"
         src=""
-        alt="Gallery image"
+        alt="Gallery photograph"
     >
 
 </div>
@@ -1362,16 +1252,17 @@ footer strong{
 
 function toggleMenu(){
 
-    const menu = document.querySelector(".nav-links");
+    const menu =
+        document.querySelector(".nav-links");
 
     menu.classList.toggle("active");
 
 }
 
 
-/* Close mobile menu after clicking */
-
-document.querySelectorAll(".nav-links a").forEach(function(link){
+document
+.querySelectorAll(".nav-links a")
+.forEach(function(link){
 
     link.addEventListener("click", function(){
 
@@ -1385,37 +1276,271 @@ document.querySelectorAll(".nav-links a").forEach(function(link){
 
 
 /* =========================
+   GITHUB GALLERY
+========================= */
+
+/*
+   Your repository:
+
+   GitHub:
+   aboobakkerfahiz57-design
+
+   Repository:
+   inayat-ali-mangalore-website
+*/
+
+const GITHUB_API =
+"https://api.github.com/repos/aboobakkerfahiz57-design/inayat-ali-mangalore-website/contents/?ref=main";
+
+
+async function loadAllPhotos(){
+
+    const galleryGrid =
+        document.getElementById("galleryGrid");
+
+    const galleryCount =
+        document.getElementById("galleryCount");
+
+
+    try{
+
+        const response =
+            await fetch(GITHUB_API);
+
+
+        if(!response.ok){
+
+            throw new Error(
+                "GitHub repository could not be accessed."
+            );
+
+        }
+
+
+        const files =
+            await response.json();
+
+
+        /*
+           Find every image file.
+
+           We don't care about the long
+           WhatsApp filename.
+        */
+
+        const photos =
+            files.filter(function(file){
+
+                if(file.type !== "file"){
+                    return false;
+                }
+
+                const name =
+                    file.name.toLowerCase();
+
+                return (
+                    name.endsWith(".jpg") ||
+                    name.endsWith(".jpeg") ||
+                    name.endsWith(".png") ||
+                    name.endsWith(".webp") ||
+                    name.endsWith(".gif")
+                );
+
+            });
+
+
+        /*
+           Don't show the two special
+           website images inside the gallery.
+
+           hero.jpg = homepage
+
+           about.jpg = about section
+        */
+
+        const galleryPhotos =
+            photos.filter(function(file){
+
+                const name =
+                    file.name.toLowerCase();
+
+                return (
+                    name !== "hero.jpg" &&
+                    name !== "about.jpg"
+                );
+
+            });
+
+
+        galleryGrid.innerHTML = "";
+
+
+        if(galleryPhotos.length === 0){
+
+            galleryGrid.innerHTML = `
+                <div class="gallery-loading">
+                    No photographs found.
+                </div>
+            `;
+
+            galleryCount.textContent =
+                "0 photographs";
+
+            return;
+
+        }
+
+
+        galleryCount.textContent =
+            galleryPhotos.length +
+            " photographs";
+
+
+        /*
+           Create one gallery card
+           for every uploaded photo.
+        */
+
+        galleryPhotos.forEach(
+            function(photo,index){
+
+                const item =
+                    document.createElement("div");
+
+                item.className =
+                    "gallery-item";
+
+
+                const image =
+                    document.createElement("img");
+
+
+                /*
+                   GitHub gives us the correct
+                   download URL automatically.
+
+                   Therefore you do NOT need
+                   to rename the photos.
+                */
+
+                image.src =
+                    photo.download_url;
+
+
+                image.alt =
+                    "Inayat Ali photograph " +
+                    (index + 1);
+
+
+                image.loading =
+                    "lazy";
+
+
+                const overlay =
+                    document.createElement("div");
+
+                overlay.className =
+                    "gallery-overlay";
+
+
+                const text =
+                    document.createElement("span");
+
+                text.textContent =
+                    "Photograph " +
+                    (index + 1);
+
+
+                overlay.appendChild(text);
+
+
+                item.appendChild(image);
+
+                item.appendChild(overlay);
+
+
+                /*
+                   Click photo →
+                   open large image
+                */
+
+                item.addEventListener(
+                    "click",
+                    function(){
+
+                        openLightbox(
+                            photo.download_url
+                        );
+
+                    }
+                );
+
+
+                galleryGrid.appendChild(item);
+
+            }
+        );
+
+
+    }
+    catch(error){
+
+        console.error(error);
+
+
+        galleryCount.textContent =
+            "Gallery unavailable";
+
+
+        galleryGrid.innerHTML = `
+            <div class="gallery-loading">
+
+                Unable to load the photographs.
+
+                <br><br>
+
+                Please make sure the GitHub
+                repository is public.
+
+            </div>
+        `;
+
+    }
+
+}
+
+
+/* =========================
    LIGHTBOX
 ========================= */
 
-const galleryItems =
-document.querySelectorAll(".gallery-item");
+function openLightbox(imageURL){
 
-const lightbox =
-document.getElementById("lightbox");
+    const lightbox =
+        document.getElementById("lightbox");
 
-const lightboxImage =
-document.getElementById("lightboxImage");
+    const lightboxImage =
+        document.getElementById("lightboxImage");
 
 
-galleryItems.forEach(function(item){
+    lightboxImage.src =
+        imageURL;
 
-    item.addEventListener("click", function(){
 
-        const image =
-        item.querySelector("img");
+    lightbox.classList.add("active");
 
-        lightboxImage.src =
-        image.src;
-
-        lightbox.classList.add("active");
-
-    });
-
-});
+}
 
 
 function closeLightbox(){
+
+    const lightbox =
+        document.getElementById("lightbox");
+
+
+    const lightboxImage =
+        document.getElementById("lightboxImage");
+
 
     lightbox.classList.remove("active");
 
@@ -1424,30 +1549,45 @@ function closeLightbox(){
 }
 
 
-/* Close lightbox by clicking background */
+/* Close by clicking outside image */
 
-lightbox.addEventListener("click", function(event){
+document
+.getElementById("lightbox")
+.addEventListener(
+    "click",
+    function(event){
 
-    if(event.target === lightbox){
+        if(event.target === this){
 
-        closeLightbox();
+            closeLightbox();
+
+        }
 
     }
-
-});
+);
 
 
 /* Close with ESC */
 
-document.addEventListener("keydown", function(event){
+document.addEventListener(
+    "keydown",
+    function(event){
 
-    if(event.key === "Escape"){
+        if(event.key === "Escape"){
 
-        closeLightbox();
+            closeLightbox();
+
+        }
 
     }
+);
 
-});
+
+/* =========================
+   START GALLERY
+========================= */
+
+loadAllPhotos();
 
 </script>
 
